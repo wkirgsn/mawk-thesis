@@ -1,0 +1,43 @@
+\chapter{Conclusion} 
+\label{cha:conclusion}
+
+This work's intention was the investigation of \acrlongpl{ann} as new model family to real-time prediction of import component temperatures inside \acrlongpl{pmsm}.
+In comparison to existing approaches, namely \acrlongpl{lptn}, the incorporation of \acrlongpl{rnn} together with memory blocks were shown to act with similar estimation precision, whereas no a priori knowledge is required. 
+Training and evaluation of neural networks were realized by the Chainer framework in Python.
+
+Having selected a variety of 15 hyper-parameters, a \acrlong{pso} is conducted over five different target categories, in order to determine optimal hyper-parameter sets upon modeling different component temperatures.
+During the hyper-parameter optimization it has been found, that evaluating a neural network's performance on an independent test set comes with a large uncertainty, which has been confirmed by additional consistency tests.
+This insight led to the conclusion, that the \gls{pso}, by evaluating each spot in the search space just once, has been constrained and finding the global optimum is a more difficult task than it is for deterministic functions.
+This was furthermore evident, when surveying the optima found by different \glspl{pso} holding similar model targets.
+These optima revealed, that surprisingly the best found model learning three targets at once estimated each target more accurate than the best found models learning one of those targets during other \glspl{pso}, although the process of normalization and its retraction theoretically disadvantage multiple-target models.
+
+Hyper-parameter relevance was determined by analyzing the distribution of hyper-parameter choices within all \gls{pso} iterations; by investigating the hyper-parameter variance trend over iterations; and by a sensitivity analysis, which evaluated each optimum iteratively with slightly varied separate hyper-parameters.
+Some findings contradicting the initial expectations were, that a single hidden layer performed a lot better than multiple; that the number of units per layer does not inherit much relevance; and that choosing a uniform weight initialization distribution leads to severe deteriorating consequences for model performance.
+
+In summary, following has been concluded:
+\begin{itemize}
+	\item \glspl{ann} are suitable for estimating important component temperatures inside \glspl{pmsm} in real-time, on condition that enough data is available for model training.
+	\item PSO for hyper-parameter optimization can reveal close to optimal hyper-parameters, but - without a computing cluster and a lot of training time - the optima are local only.
+	\item Some hyper-parameters are much more relevant for the regression task than others.
+	\item Model ensembles denote a fundamental chance to improving prediction accuracy with relatively less effort. 
+\end{itemize}
+
+\subsubsection{Future Work}
+
+During the course of this thesis, some perspectives loomed for future investigations.
+Regarding the set of hyper-parameters, it has been shown, that some can remain constant at an approximately optimal choice without harm, so that other hyper-parameters could be considered.
+
+For instance, there are many more regularization techniques, which potentially boost generalization.
+Among others, weight decay with an L1-regularization instead of L2 is worth a try.
+Another idea is \textit{ZoneOut}, which, similar to `Dropout', chooses a set of neurons in each layer randomly every epoch, but instead of nullifying their activation they are frozen and keep on contributing during forward and backward propagation.
+Designing new topologies as well as more sophisticated features and adding even other models from completely different model families (e.g. decision trees or Bayesian algorithms) are established procedures to enhance model performance.
+
+An obvious aspect for future work is denoted by training neural networks on more training data.
+This implies the time-consuming measurement of additional time series, yet this would act as a reliable source for improved neural network performance. 
+It is especially interesting, as of how much data the hyper-parameter `lookback' could be disregarded, since this feature would not be applicable in real world applications.
+
+In terms of hyper-parameter optimization, the relevance of the third level of inference has not been examined in this work at all.
+Finding better options for the swarm size or, more importantly, for the velocity update with decaying inertia as suggested in the literature, may expose further chances to model performance improvements.
+Moreover, with new training algorithms being more robust to local optima for \glspl{ann} in the future, \gls{pso} will be likely to find more reliable optima.
+
+A sophisticated composition of \glspl{ann} to model ensembles represents a convenient mean to increasing estimation accuracy with low effort and is worth being investigated more thoroughly in the future.

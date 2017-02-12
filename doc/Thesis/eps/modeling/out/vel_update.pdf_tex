@@ -1,0 +1,62 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'vel_update.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{323.68701172bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.61657032)%
+    \put(0,0){\includegraphics[width=\unitlength]{vel_update.pdf}}%
+    \put(0.02408478,0.5568401){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{particle position at t}}}%
+    \put(0.33297025,0.2807165){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{particle position at t+1}}}%
+    \put(0.58923227,0.46665096){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{global best position}}}%
+    \put(0.50638065,0.12753731){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{personal best position}}}%
+    \put(0.09537572,0.20520231){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{
+}}}%
+    \put(0.01926782,0.22350672){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.27552991\unitlength}\raggedright displacement due to best known positions\end{minipage}}}%
+    \put(0.04046243,0.46146434){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15992293\unitlength}\raggedright own velocity\\ \end{minipage}}}%
+  \end{picture}%
+\endgroup%

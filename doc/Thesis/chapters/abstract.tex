@@ -1,0 +1,14 @@
+\chapter{Abstract}
+
+%This should include the tasks of your work, your achievements and a few words about the scientific domain where your work is positioned.
+The safe operation of permanent magnet synchronous motors is heavily dependent on the heat development inside.
+Since these electric motors possess a complex inner structure, it is too cumbersome and cost-intensive to measure important components' temperatures on a sensor basis. 
+As production costs and competitive pressure are high - especially in automotive applications - oversizing the implemented material is no option and motor performance is constrained instead, such that operational reliability is not harmed even in a worst case scenario.
+In order to enable full utilization of a motor's overload capacities while sustaining its functionality, a real-time temperature estimation with sufficient accuracy is desirable.
+In this work, the application of recurrent neural networks featuring memory blocks (LSTM/GRU) are investigated upon their suitability to accurate prediction of important component temperatures inside the aforementioned type of electric motors, which is the first time in literature to our best knowledge.
+Having benchmark data available, numerous neural networks were trained and optimized with the aid of the Chainer framework in Python.
+A particle swarm optimization was conducted for the models' hyper-parameters on a computing cluster.
+It has been found, that performance is comparable to the state-of-the-art estimations of lumped-parameter thermal networks.
+Permanent magnet temperatures were predictable with a mean squared error of under \SI{10}{\kelvin\squared}, while accuracy for stator temperatures were even better - the best at under \SI{2}{\kelvin\squared} for the stator yoke.
+After determining optimal hyper-parameters for differently targeted models, their individual relevance with respect to model performance has been evaluated by a sensitivity analysis and by surveying the optimization development.
+Importance was significantly unequal within a predefined selection of 15 hyper-parameters, so that future research can be focused on relevant aspects in this field.

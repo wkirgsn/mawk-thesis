@@ -1,0 +1,80 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'gru.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{430.34145508bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.65336659)%
+    \put(0,0){\includegraphics[width=\unitlength]{gru.pdf}}%
+    \put(0.7905768,0.48431892){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{Legend}}}}%
+    \put(0.41349416,0.12130119){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{GRU block}}}}%
+    \put(0.62762287,0.53695973){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.62762287,0.39089636){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.45214641,0.4912985){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{reset gate}}}%
+    \put(0.21532434,0.12585942){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{block input}}}%
+    \put(0.34934003,0.22822536){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\phi$}}}%
+    \put(0.48464422,0.36099576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm r$}}}%
+    \put(0.28675642,0.52192909){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm h$}}}%
+    \put(0.24061528,0.6129198){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{output}}}%
+    \put(0.40233132,0.61225588){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.35970369,0.29628053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{\tilde h$}}}}%
+    \put(0.01845935,0.30899031){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.01311731,0.12487058){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.24791684,0.03294776){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.14950315,0.16183251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{update gate}}}%
+    \put(0.20476387,0.3006001){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm z$}}}%
+    \put(0.25821315,0.35450825){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1-x}}}%
+    \put(0.74451758,0.1512948){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1-x}}}%
+    \put(0.81564922,0.45386534){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12967577\unitlength}\raggedright unweighted\\ connection\end{minipage}}}%
+    \put(0.81564922,0.39238151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12967577\unitlength}\raggedright weighted\\ connection\end{minipage}}}%
+    \put(0.81564922,0.33253113){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14339148\unitlength}\raggedright time-delayed\\ connection\end{minipage}}}%
+    \put(0.81564922,0.2727261){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1458853\unitlength}\raggedright non-linear\\ activation\\ function\end{minipage}}}%
+    \put(0.81564922,0.18210039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16209472\unitlength}\raggedright subtract input\\ from one\end{minipage}}}%
+    \put(0.47895096,0.40333363){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+    \put(0.19791986,0.23863701){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+  \end{picture}%
+\endgroup%

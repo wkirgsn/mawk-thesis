@@ -1,0 +1,87 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'lstm.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{453.38144531bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.62253076)%
+    \put(0,0){\includegraphics[width=\unitlength]{lstm.pdf}}%
+    \put(0.80077789,0.4649896){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{Legend}}}}%
+    \put(0.18875765,0.02089764){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.37560757,0.02089764){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.26177378,0.30466116){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{cell}}}%
+    \put(0.16851851,0.12285298){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{block input}}}%
+    \put(0.36882728,0.1941861){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input gate}}}%
+    \put(0.36882728,0.40807809){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{output gate}}}%
+    \put(0.12092577,0.2699037){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{forget gate}}}%
+    \put(0.15750147,0.39994966){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{peepholes}}}%
+    \put(0.19760621,0.32694157){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm f$}}}%
+    \put(0.32768798,0.31089965){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm s$}}}%
+    \put(0.36069882,0.24762332){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm i$}}}%
+    \put(0.2662299,0.20751856){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm g$}}}%
+    \put(0.35713398,0.46240646){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm o$}}}%
+    \put(0.25910016,0.49834296){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm h$}}}%
+    \put(0.22790757,0.59163286){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{output}}}%
+    \put(0.35178668,0.59163286){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.36538696,0.11659838){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{LSTM block}}}}%
+    \put(0.0119907,0.1976646){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.0119907,0.41066717){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.57411592,0.51527791){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.57411592,0.37033533){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.57411592,0.29723382){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{recurrent}}}%
+    \put(0.57411592,0.1585931){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{input}}}%
+    \put(0.31384942,0.15859304){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\phi$}}}%
+    \put(0.31447962,0.38545975){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\phi$}}}%
+    \put(0.43106388,0.22476255){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+    \put(0.16638609,0.30164514){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+    \put(0.43106385,0.4390255){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+    \put(0.84350278,0.4386437){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12308589\unitlength}\raggedright unweighted\\ connection\end{minipage}}}%
+    \put(0.84350278,0.35911013){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12308589\unitlength}\raggedright weighted\\ connection\end{minipage}}}%
+    \put(0.84350278,0.28465606){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1361046\unitlength}\raggedright time-delayed\\ connection\end{minipage}}}%
+    \put(0.84350278,0.1996579){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13847169\unitlength}\raggedright non-linear\\ activation\\ function\end{minipage}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#inkscape -D -z --export-area-drawing aufbauEM.svg --export-pdf=out/image.pdf --export-latex
+
+mkdir -p out
+
+FILES=*.svg
+for f in $FILES
+do
+        echo "Processing $f file..."
+        inkscape -z --export-area-page $f --export-pdf=out/${f::-4}.pdf --export-latex
+
+done
+

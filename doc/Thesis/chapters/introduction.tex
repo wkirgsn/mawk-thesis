@@ -1,0 +1,32 @@
+\chapter{Introduction}
+\label{cha:introduction}
+
+%In der Einleitung sollte zunächst klar das Ziel der Arbeit genannt werden. (purpose)
+The purpose of this thesis is primarily to investigate in how far \glspl{ann} are capable of estimating temperature time series of important components inside a \gls{pmsm}, given extrinsic real-time measurements.
+Every aspect, that could influence neural network performance, is concerned in this work with the aid of a vast amount of recent literature researching the broad subject of modeling with \glspl{ann} in order to evaluate the eligibility of their launch in an automotive environment.
+
+%Anschließend sollte eine kurze Einordnung der Arbeit in den Kontext der aktuellen Forschung erfolgen. (motivation)
+Precise estimates of the aforementioned components' temperature at any time during motor operation are desirable, since then the implemented materials' overload capacities can be fully utilized and heating-induced damaging becomes preventable.
+The state of the art in real-time prediction of those target temperatures of interest is currently constituted by \glspl{lptn}.
+These networks, which resemble electrical-network circuits, may be utilized as parameterized white-box model, that is, predicting temperatures solely upon fully interpretable structures based on heat transfer theory.
+The order of complexity for those structures is constrained due to the real-time requirement and the strictly limited computational capacities in automotive applications, such that general prediction and especially hot-spot temperature estimation accuracy suffers from too few \gls{lptn} components.
+Furthermore, several thermal phenomena inside electric machines are not analytically solvable in a closed relationship and, therefore, designing thermal networks with sufficient prediction accuracy proves difficult even without a complexity cap and despite geometry and material data being known.
+
+Incorporating empirical data helps overcoming these drawbacks.
+Yet \glspl{lptn}, that were designed with the aid of experimental data, represent structures, which are not physically interpretable anymore to full extent and, thus, are denoted grey-box models.
+In addition, the appropriate configuration of a \gls{lptn} is impeded by varying parameters during motor operation, which either leaves the model being restricted in its use to specific subsets of applications or demands even more domain knowledge only experienced model designers can display.
+
+The application of \glspl{ann} in turn represents a black-box model approach from the field of machine learning, that relies completely on empirical data without requiring a priori knowledge.
+Although neural networks have been surveyed for decades already, they attracted interest again in the recent past through groundbreaking success in sequence modeling and visual recognition and are increasingly investigated by various research groups still to this day.
+
+As \glspl{ann} proved successful in regression tasks before and simultaneously denote a computationally light application in the field, chances are high, that they also perform decent for the particular task of predicting the before mentioned component temperatures in \glspl{pmsm}.
+
+%Als letzter Absatz wird die Struktur der Arbeit erläutert (Sehr kurz und grob!) (scope)
+This thesis is structured as follows:
+First of all, the background and mathematical model of \glspl{pmsm} as well as their established heat transfer analyses are explained in the first half of chap. \ref{cha:sota}, whereupon the basics of \glspl{ann} and their situation in the field of machine learning follow in the second half.
+
+Chap. \ref{cha:derivation} deals with the particular methodology conducted in order to train neural networks of different topologies and to cross validate their performance.
+Furthermore, several optimization techniques for training \glspl{ann} and for increasing generalization ability are specified.
+The last part of chap. \ref{cha:derivation} describes the way hyper-parameters are optimized.
+
+The results of the hyper-parameter optimization and the achieved estimation accuracy as well as the relevance exhibited by each hyper-parameter are stated in chap. \ref{cha:evaluation}, which arrive at a conclusion in chap. \ref{cha:conclusion}.

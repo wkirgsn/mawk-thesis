@@ -1,0 +1,221 @@
+% Newest hyphenation (put it in front of documentclass)
+ \RequirePackage[english=usenglish]{hyphsubst}
+%\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+
+\documentclass[
+    %ngerman, % 
+    english,
+    a4paper,
+    12pt,
+    twoside, % twoside
+    final,
+    numbers=noenddot, % Avoid i.e. "5.5." for chapters, write "5.5"
+    toc=bibliography,
+    toc=listof
+]{scrbook}
+
+
+% % % % Language and encoding
+
+% Allow the complete utf8 character set. Be careful so save all files in utf8 encoding. This is especially important for German umlauts.
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+
+% % % % Page layout related features
+
+% Alternative to the fancyhdr-package which fits better to scrbook since both are part of KOMA-script, the following style is partly defined by Joerg
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{-~#1}{}}
+\ihead{\leftmark}
+\chead{}
+\ofoot{}
+\setheadsepline{.4pt}
+\cfoot[\pagemark]{}
+\ohead[]{\pagemark}
+
+% Disables header and footer in italic
+\setkomafont{pageheadfoot}{\normalfont}
+
+% Package to create horizontal rules around chapter titles
+\usepackage{titlesec}
+
+% Page size definition by original author
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\textwidth}{155mm}
+\setlength{\topmargin}{-5mm}
+\setlength{\textheight}{235mm}
+
+
+% % % % Text layout related features
+
+% Subliminal refinements towards typographical perfection
+\usepackage{microtype}
+
+\usepackage{xspace}
+\usepackage{rotating}
+
+% It provides \textcolor{<color>}{<text>} as well as \color{<color>} to switch the color for some give text or until the end of the group/environment. You can get different shades of gray by using black!x as a color where x is a number from 0 to 100, taken as a percentage.
+\usepackage{xcolor}
+\newcommand{\inred}[1]{\xspace{\color{red} #1}\xspace} % Use this command to make annotations, which will be removed in the final document.
+
+% Allow URLs to break at hyphens
+\usepackage[hyphens]{url}
+
+% Change style to the style of the normal text instead of ttfamily style.
+\urlstyle{same}
+
+% Do not indent the beginning of a new paragraph
+\usepackage[parfill]{parskip}
+
+
+% % % % Math related features
+
+% The bm package is loaded, but you should still use \mathbf and \boldsymbol to remain compatible with MathJax.
+\usepackage{amssymb, amsmath, bm}
+
+
+% This package is the current package for units and outperforms siunits and similar packages
+%\usepackage[decimalsymbol=comma, expproduct=times]{siunitx} % German notation
+\usepackage[expproduct=times]{siunitx} % American notation
+
+
+% % % % Source code related features
+
+% Put in source code into your document, this especially allows inline source code with \lstinline!example!, where "!" can be exchanged by any delimiter
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily
+}
+
+% Pseudo code
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+% Allow one-line if conditions
+\newcommand{\LineIf}[3]{ \State \algorithmicif\ {#1}\ \algorithmicthen\ {#2} \algorithmicend\ \algorithmicif }
+
+
+% % % % Image and plot related features
+\graphicspath{{eps/}}							% Festlegung des Pfades zu den Bildern
+\DeclareGraphicsExtensions{.eps}
+% Use TikZ to draw images
+\usepackage{pgfplots} % Import der Plots aus Matlab
+\newlength\fheight % Plots aus Matlab immer gleich gross
+\newlength\fwidth % Plots aus Matlab immer gleich gross
+\usepackage{tikz}
+\pgfplotsset{compat=1.9}
+
+% Precompile TikZ pictures for speedup, this does not seem to work in Poolroom yet
+\usetikzlibrary{external}
+% \tikzexternalize % Activate, works only with pdflatex
+
+% Subfigure is deprecaded and subfig is the new version of subfigure
+% Subcaption works with hyperref whereas subfigure is reported to be broken
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Use this package to import Inkscape generated pdfs with pdf_tex files
+\usepackage{import}
+
+% Macros to adjust position text in Inkscape files. Place the anchor exactly in the middle of the position where the text should appear
+% Use \adjTxtPos{multiline\\text}
+% or \adjTxtPosRot{lorem\\ipsum}
+\newlength{\myheight}
+\newcommand{\adjTxtPos}[1]{\settoheight{\myheight}{Fg}{\parbox[c]{\textheight}{\centering \vspace{\myheight}\phantom{F} #1 \\ \phantom{g} }}}
+\newcommand{\adjTxtPosRot}[1]{\begin{rotate}{90}\hspace{-0.5\textheight}\adjTxtPos{#1}\end{rotate}}
+
+% % % % Table related features
+
+% Define new column types to allow centering and width of each cell
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Tables according to Chicago Manual of Style
+\usepackage{tabularx, etoolbox, booktabs}
+\usepackage{multirow} % Allows rowspan
+\newcommand{\rarray}[1]{\renewcommand{\arraystretch}{#1}} % Slightly enlarged cells
+\captionsetup{belowskip=12pt,aboveskip=4pt} % Correct table caption distance
+
+
+% % % % Links and references setup
+
+\usepackage{csquotes} % texdoc biblatex: If this package is available, biblatex will use its language sensitive quotation facilities to enclose certain titles in quotation marks.
+\usepackage[backend=bibtex, style=alphabetic, firstinits=true]{biblatex}
+% \usepackage[backend=biber, style=ieee]{biblatex} % Alternative
+\setlength\bibitemsep{\baselineskip} % Custom MAWK, add space between entries
+\bibliography{references}
+
+% According to the glossaries manual, this package should be loaded after hyperref, the toc option makes the glossaries appear in the table of contents
+\usepackage[acronym, toc, nonumberlist]{glossaries}
+\renewcommand*{\glsgroupskip}{}
+\input{chapters/glossaries}
+% Add this after all new glossary entries
+\makeglossaries
+
+% Allow URLs and other links to be clickable
+% Removes borders according to: texdoc hyperref page 4
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+
+\input{chapters/macros}
+
+\begin{document}
+    
+    \frontmatter
+    % Difference between \input and \include: http://web.science.mq.edu.au/~rdale/resources/writingnotes/latexstruct.html
+    \input{chapters/titlepage}
+    
+    \titleformat{\chapter}
+    [display] % The paragraph shape
+    {\bfseries\huge} % Format of the main text
+    {} % Label is ommitted here, since it is below
+    {0ex}
+    {\vspace{-5ex}\titlerule\vspace{1.5ex}\filright~}
+    [\vspace{1ex}\titlerule]
+    
+    \input{chapters/declaration}
+    \input{chapters/abstract}
+    
+    \tableofcontents
+    
+    \mainmatter
+    \titleformat{\chapter}
+    [display] % The paragraph shape
+    {\bfseries\huge} % Format of the main text
+    {} % Label is ommitted here, since it is below
+    {0ex}
+    {\vspace{-5ex}\titlerule\vspace{1.5ex}\filright \thechapter~}
+    [\vspace{1ex}\titlerule]
+    \input{chapters/introduction.tex}
+    \input{chapters/status.tex}
+    \input{chapters/derivation.tex}
+    \input{chapters/evaluation.tex}
+    \input{chapters/summary.tex}
+    
+    % Explanation for order of \appendix and \backmatter: http://tex.stackexchange.com/questions/20538/what-is-the-right-order-when-using-frontmatter-tableofcontents-mainmatter
+    \appendix
+    \input{chapters/appendix.tex}
+    
+    \backmatter
+    \titleformat{\chapter}
+    [display] % The paragraph shape
+    {\bfseries\huge} % Format of the main text
+    {} % Label is ommitted here, since it is below
+    {0ex}
+    {\vspace{-5ex}\titlerule\vspace{1.5ex}\filright~}
+    [\vspace{1ex}\titlerule]
+    
+    \input{chapters/symbols.tex}
+    
+    \listoffigures
+    \listoftables
+    
+    \printglossaries
+    
+    \printbibliography
+\end{document}

@@ -1,0 +1,71 @@
+
+\section{Peephole LSTM with Forget Gates in Pseudo-code}
+\label{sec:LSTM_FgPH_Pseudo-code}
+\fbox{
+\parbox{10cm}{ \tt \small
+\begin{tabbing}
+\hspace{0.5cm} \= \hspace{0.5cm} \= \hspace{0.5cm} \= \kill
+{\bf REPEAT} learning loop\\
+{\bf forward pass} (net input and activation in hidden layer)\\
+  \> {\bf reset} all $net$ values\\ % with bias connection or to zero\\
+  \> {\bf Step 1a,1b: input gates and forget gates, $l\in\{\varphi,in\}$:}
+(\ref{equ:net_in}),(\ref{equ:net_fg}): \\
+  \>  \> $net_{l_j}(t) = \sum_{m} w_{l_jm} \ y^{m}(t\!-\!1) +
+\sum_{v=1}^{S_j} w_{l_jc_j^v} \ s_{c_j^v}(t\!-\!1)
+\ , \ \
+y^{l_{j}}(t) = f_{l_j}(net_{l_j}(t))$\\
+  \> {\bf Step 1c}: 
+{\bf cell state}, $s_{c_j^v}(0)=0$: (\ref{equ:s_c_Fg}):\\
+  \>  \> $net_{c_j^v}(t) = \sum_m w_{c_j^v m} \ y^m(t\!-\!1)$ ,
+$s_{c_j^v}(t) = y^{\varphi_j}(t) \ s_{c_j^v}(t\!-\!1) +  
+	 y^{in_{j}}(t) \ g(net_{c_j^v}(t))$\\
+  \> {\bf Step 2:} {\bf output gate activation}: (\ref{equ:net_out_peep}):\\ 
+  \>  \> $net_{out_j}(t) = \sum_{m} w_{out_jm} \ y^{m}(t\!-\!1) +
+\sum_{v=1}^{S_j} w_{out_jc_j^v} \ s_{c_j^v}(t)
+\ , \ \
+y^{out_{j}}(t) = f_{out_j}(net_{out_j}(t))$\\
+  \>  \> {\bf cell output:} (\ref{equ:yCell}):
+$y^{c_j^v}(t) = y^{out_{j}}(t) \ s_{c_j^v}(t)$\\
+  \>  \> {\bf output units}: (\ref{equ:OutUnit_StdLSTM}):
+$net_k(t) = \sum_{m} w_{km} \ y^m(t\!-\!1) \ , \ \ y^k(t) = f_k(net_k(t))$\\
+  \> {\bf derivatives} for input gates, forget gates and cells: init all: $dS(0) = 0$\\
+  \>  \> cells (\ref{equ:s_partial_s_c}): 
+$dS^{jv}_{cm}(t) := \frac{\partial s_{c_j^v}(t)}{\partial w_{c_j^vm}}$:\\
+  \>  \> $dS^{jv}_{c m}(t) = dS^{jv}_{c m}(t\!-\!1) \ y^{\varphi_j}(t) + g'(net_{c_j^v}(t)) \ y^{in_j}(t) \ y^m(t\!-\!1)$\\
+  \>  \> input gates (\ref{equ:s_partial_in}): 
+$dS^{jv}_{in,m}(t) := \frac{\partial s_{c_j^v}(t)}{\partial w_{in_j m}}$ ,
+$dS^{jv}_{in,s_c^v}(t) := \frac{\partial s_{c_j^v}(t)}{\partial w_{in_j s_c^v}}$:\\
+%$dS^{jv}_{in,m}(0) = 0$\\
+  \>  \> $dS^{jv}_{in,m}(t) = dS^{jv}_{in,m}(t\!-\!1) \ y^{\varphi_j}(t) + g(net_{c_j^v}(t)) \ f'_{in_j}(net_{in_j}(t)) \ y^m(t\!-\!1)$\\
+  \>  \> $dS^{jv}_{in,s_c^v}(t) = dS^{jv}_{in,s_c^v}(t\!-\!1) \ y^{\varphi_j}(t) + g(net_{c_j^v}(t)) \ f'_{in_j}(net_{in_j}(t)) \ s_c^v(t\!-\!1)$\\
+  \>  \> forget gates (\ref{equ:s_partial_fg}): 
+$dS^{jv}_{\varphi m}(t) := \frac{\partial s_{c_j^v}(t)}{\partial w_{\varphi_j m}}$ ,
+$dS^{jv}_{\varphi s_c^v}(t) := \frac{\partial s_{c_j^v}(t)}{\partial w_{\varphi_j s_c^v}}$:\\
+%$dS^{jv}_{\varphi m}(0) = 0$\\
+  \>  \> $dS^{jv}_{\varphi m}(t) = dS^{jv}_{\varphi m}(t\!-\!1) \ y^{\varphi_j}(t) + s_{c_j^v}(t\!-\!1) \ f'_{\varphi_j}(net_{\varphi_j}(t)) \ y^m(t\!-\!1)$\\
+  \>  \> $dS^{jv}_{\varphi s_c^v}(t) = dS^{jv}_{\varphi s_c^v}(t\!-\!1) \ y^{\varphi_j}(t) + s_{c_j^v}(t\!-\!1) \ f'_{\varphi_j}(net_{\varphi_j}(t)) \ s_c^v(t\!-\!1)$\\
+{\bf backward pass} if error injected \\ 
+  \> {\bf errors} (injection error: $e_k(t) := t^k(t)-y^k(t)$) and {\bf $\delta$s}:\\
+  \>  \> output units (\ref{equ:dwOut}): $\delta_k(t) = f'_k(net_k(t)) \ e_k(t)$\\
+%  \>  \> non LSTM units (\ref{equ:DeltaHidden}): $\delta_i(t) = f'_i(net_i(t)) \left(\sum_{k} w_{ki} \ \delta_k(t)\right)$\\
+  \>  \> output gates (\ref{equ:delta_OutGate}):
+$\delta_{out_j}(t) = f'_{out_j}(net_{out_j}(t)) \ \left( \sum_{v =1}^{S_j} \ s_{c_j^v}(t) \sum_{k} w_{kc_j^v} \ \delta_k(t) \right)$\\
+  \>  \> input gates, forget gates and  cells (\ref{equ:e_s}):\\
+  \>  \>$e_{s_{c_j^v}}(t) = y^{out_j}(t) \ \ h'(s_{c_j^v}(t)) 
+\left( \sum_{k} w_{kc_j^v} \ \delta_k(t) \right)$\\
+  \> {\bf weight updates}\\
+  \>  \> output units (\ref{equ:dwOut}): 
+$\Delta w_{km}(t) = \alpha \ \delta_k(t) \ y^m(t\!-\!1)$\\
+  \>  \> output gates (\ref{equ:dwOutGate}):\\
+  \>  \> $\Delta w_{out,m}(t) = \alpha \ \delta_{out}(t) \ y^m(t\!-\!1) \ , \ 
+\Delta w_{out,c_j^v}(t) = \alpha \ \delta_{out}(t) \ s_{c_j^v}(t)$\\
+  \>  \> input gates (\ref{equ:dwIn}): \\
+  \>  \> $\Delta w_{in,m}(t) = \alpha \sum_{v=1}^{S_j} \ e_{s_{c_j^v}}(t) \ dS^{jv}_{in,m}(t)$ , 
+$\Delta w_{in,s_c^v}(t) = \alpha \sum_{v=1}^{S_j} \ e_{s_{c_j^v}}(t) \ dS^{jv}_{in,s_c^v}(t)$\\
+  \>  \> forget gates (\ref{equ:dwFg}): \\
+  \>  \> $\Delta w_{\varphi m}(t) = \alpha  \sum_{v=1}^{S_j} \ e_{s_{c_j^v}}(t) \ dS^{jv}_{\varphi m}(t)$ ,
+$\Delta w_{\varphi s_c^v}(t) = \alpha \sum_{v=1}^{S_j} \ e_{s_{c_j^v}}(t) \ dS^{jv}_{\varphi s_c^v}(t)$\\
+  \>  \> cells (\ref{equ:dw_s_c}): $\Delta w_{c_j^vm}(t) = \alpha \ e_{s_{c_j^v}}(t) \ dS^{jv}_{c m}(t)$\\
+{\bf UNTIL} error stopping criterion 
+\end{tabbing}
+}}
